@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:op.gg)",
+      "Bash(npx vite build:*)",
+      "Bash(node -e:*)",
+      "Bash(where:*)",
+      "Bash(npm run build:*)",
+      "Bash(vercel:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}

@@ -1,0 +1,608 @@
+.page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: center center;
+  transform: translate(-50%, -50%) scale(var(--page-scale));
+  overflow: visible;
+}
+
+.full-image {
+  width: 1920px;
+  height: 1080px;
+  display: block;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  display: block;
+}
+
+.fill-layer {
+  width: calc(100vw / var(--page-scale));
+  height: calc(100vh / var(--page-scale));
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.shift-right {
+  left: 130px;
+  top: 15px;
+}
+
+.shift-topright {
+  left: 160px;
+}
+
+.hover-hidden {
+  opacity: 0;
+}
+
+.popup-usc {
+  top: -65px;
+  left: -1px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.paw {
+  position: absolute;
+  top: 205px;
+  left: 1664px;
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 0.4s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.paw-open {
+  transform: rotate(180deg);
+}
+
+.base-layer {
+  width: calc(100vw / var(--page-scale));
+  height: calc(100vh / var(--page-scale));
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: top center;
+}
+
+.blackedge {
+  mix-blend-mode: multiply;
+  opacity: 0.97;
+}
+
+.behance-btn {
+  position: absolute;
+  top: 70px;
+  left: 1230px;
+  width: 52px;
+  height: 52px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.youtube-btn {
+  position: absolute;
+  top: 72px;
+  left: 1330px;
+  width: 52px;
+  height: 52px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.linkedin-btn {
+  position: absolute;
+  top: 72px;
+  left: 1430px;
+  width: 52px;
+  height: 52px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.start-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.topright-icon-btn {
+  position: absolute;
+  top: 23px;
+  left: 1690px;
+  width: 134px;
+  height: 134px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 15;
+  background: transparent;
+}
+
+.queue-pop {
+  z-index: 5;
+}
+
+.accept-btn {
+  position: absolute;
+  z-index: 10;
+  left: 37.5%;
+  top: 84%;
+  width: 25%;
+  height: 10%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+/* ── Guide layer ── */
+.guide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Text base ── */
+.text {
+  position: absolute;
+  pointer-events: none;
+  line-height: 1.2;
+}
+
+/* ── Top Nav ── */
+.nav-play {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 47px;
+  color: #ffffff;
+  left: 165px;
+  top: 62px;
+  letter-spacing: -1px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.nav-projects {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 50px;
+  color: #c2b58b;
+  left: 413px;
+  top: 62px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.nav-art {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 50px;
+  color: #c2b58b;
+  left: 710px;
+  top: 62px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.nav-resume {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: #c2b58b;
+  left: 905px;
+  top: 67px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+/* ── Top Right Name ── */
+.top-name {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 35px;
+  color: #ffffff;
+  left: 1778px;
+  top: 48px;
+  width: 200px;
+  text-align: right;
+}
+
+.top-status {
+  font-family: 'Spiegel', sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  color: #009b3d;
+  left: 1838px;
+  top: 85px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  pointer-events: auto;
+  gap: 6px;
+}
+
+.top-fav-games {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #999486;
+  left: 1676px;
+  top: 226px;
+  width: 300px;
+  text-align: right;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1e825a;
+  border: 2px solid #36d987;
+}
+
+/* ── Left Card ── */
+.card-name {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: #ffffff;
+  left: 118px;
+  top: 648px;
+  width: 200px;
+  text-align: center;
+}
+
+.card-title {
+  font-family: 'Spiegel', sans-serif;
+  font-weight: 600;
+  font-size: 27px;
+  color: #595752;
+  left: 128px;
+  top: 684px;
+  width: 200px;
+  text-align: center;
+}
+
+/* ── Bottom Stat Labels ── */
+.stat-label-1,
+.stat-label-2,
+.stat-label-3,
+.stat-label-4 {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #c2b58b;
+  letter-spacing: -1px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(48, 0, 64, 0.2);
+}
+
+.stat-value-1,
+.stat-value-2,
+.stat-value-3,
+.stat-value-4 {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.honors-title {
+  font-family: 'Beaufort', serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #c2b58b;
+  left: 430px;
+  top: 551px;
+  width: 250px;
+  text-align: center;
+}
+
+.honors-gpa {
+  font-family: 'Spiegel', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  left: 430px;
+  top: 583px;
+  width: 250px;
+  text-align: center;
+}
+
+.usc-logo-box {
+  position: absolute;
+  top: 765px;
+  left: 480px;
+  width: 160px;
+  height: 250px;
+  background: transparent;
+  border: none;
+  z-index: 10;
+}
+
+.shift-stat2 {
+  left: 280px;
+}
+
+.popup-stat2 {
+  top: -65px;
+  left: 269px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.popup-stat2.popup-stat2-visible {
+  opacity: 1;
+}
+
+.stat2-logo-box {
+  position: absolute;
+  top: 765px;
+  left: 750px;
+  width: 160px;
+  height: 250px;
+  background: transparent;
+  border: none;
+  z-index: 10;
+}
+
+.stat2-title {
+  left: 700px !important;
+}
+
+.stat2-gpa {
+  left: 700px !important;
+}
+
+.honors-title,
+.honors-gpa {
+  opacity: 0;
+  z-index: 20;
+}
+
+.honors-title.honors-visible,
+.honors-gpa.honors-visible {
+  opacity: 1;
+}
+
+.popup-usc.popup-usc-visible {
+  opacity: 1;
+}
+
+.stat-label-1 { left: 415px; top: 678px; width: 250px; font-size: 25px; }
+.stat-value-1 { left: 428px; top: 707px; width: 250px; font-size: 25px; }
+
+.stat-label-2 { left: 750px; top: 678px; width: 170px; font-size: 25px; }
+.stat-value-2 { left: 750px; top: 707px; width: 170px; font-size: 25px; }
+
+.stat-label-3 { left: 988px; top: 678px; width: 230px; font-size: 25px; }
+.stat-value-3 { left: 988px; top: 707px; width: 230px; font-size: 25px; }
+
+.stat-label-4 { left: 1255px; top: 678px; width: 230px; font-size: 25px; }
+.stat-value-4 { left: 1255px; top: 707px; width: 230px; font-size: 25px; }
+
+.project-card {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%) scale(0.49);
+  transform-origin: left center;
+  border: 18px solid #c5a86c;
+  border-radius: 15px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.project-card-1 { left: -10px; }
+.project-card-2 { left: 389px; }
+.project-card-3 { left: 788px; }
+.project-card-4 { left: 1187px; }
+.project-card-5 { left: -10px; top: 100%; }
+.project-card-6 { left: 389px; top: 100%; }
+
+.project-card-img,
+.project-card-hover {
+  display: block;
+  width: 100%;
+}
+
+.project-card-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.project-card:hover .project-card-hover {
+  opacity: 1;
+}
+
+.project-card:hover {
+  border-color: #d9b05b;
+}
+
+
+.scrollbar-track {
+  position: absolute;
+  top: 220px;
+  right: 320px;
+  width: 8px;
+  height: 820px;
+  background: transparent;
+  border-radius: 4px;
+  z-index: 20;
+}
+
+.scrollbar-thumb {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  background: rgba(197, 168, 108, 0.6);
+  border-radius: 4px;
+}
+
+.scrollbar-thumb:hover {
+  background: rgba(197, 168, 108, 0.9);
+}
+
+.projectshover {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  top: 27px;
+}
+
+.projectshover-visible {
+  opacity: 0.7;
+}
+
+.projectshover-active {
+  opacity: 1;
+}
+
+.scrollbg {
+  z-index: 0;
+}
+
+.projects-scrollable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: 1;
+}
+
+.projects-fixed {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.projects-text {
+  z-index: 3;
+}
+
+.projects-heading {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: #ffffff;
+  left: -10px;
+  top: 235px;
+}
+
+.project-detail {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 1200px;
+  height: 800px;
+  z-index: 1;
+}
+
+.back-btn {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  background: linear-gradient(180deg, #705a2e 0%, #3a2a10 100%);
+  border: 2px solid #c5a86c;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 28px;
+  padding: 10px 28px;
+  cursor: pointer;
+  z-index: 10;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.back-btn:hover {
+  background: linear-gradient(180deg, #8a6e38 0%, #4a3518 100%);
+  border-color: #d9b05b;
+  color: #ffffff;
+}
+
+.back-arrow {
+  font-size: 22px;
+}
+
+.project-detail-title {
+  font-family: 'Beaufort', serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: #ffffff;
+  margin: 120px 0 20px 20px;
+  letter-spacing: 1px;
+}
+
+.project-detail-links {
+  display: flex;
+  gap: 20px;
+  margin: 0 20px 15px;
+}
+
+.project-link {
+  font-family: 'Spiegel', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  color: #ffffff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.project-link:hover {
+  color: #c5a86c;
+}
+
+.project-detail-desc {
+  font-family: 'Spiegel', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: #c2b58b;
+  margin: 0 20px;
+  line-height: 1.6;
+  max-width: 1100px;
+  white-space: pre-line;
+}
