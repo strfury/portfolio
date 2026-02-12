@@ -16,6 +16,7 @@ function useScale() {
 const projectData = {
   pvz: {
     title: 'PLANTS VS ZOMBIES 3: EVOLVED',
+    subtitle: 'GAME DESIGN INTERN - MAY-AUGUST 2025',
     description: 'Wrote design documents for new and returning Plants from the PVZ Franchise\nDesigned 5+ new plants and merges of previously existing plants\nModernized older plants from previous installations\nDesigned and pitched engineering feature request for upcoming plant\nIterated and implemented feedback on plant balance\nPlayed and observed weekly playtests and logged bugs\nParticipated in art and animation meetings to provide feedback on new designs',
   },
   smoke: {
@@ -27,16 +28,18 @@ const projectData = {
     description: 'Coming soon',
   },
   sale: {
-    title: 'SALEBLAZERS\nMULTIPLAYER SHOPKEEPING GAME',
+    title: 'SALEBLAZERS - MULTIPLAYER SHOPKEEPING GAME',
+    subtitle: 'GAME DESIGN INTERN - JANUARY 2026-PRESENT',
     description: 'Wrote, and implemented complex dialogue trees, scripted with Lua\nRedesigned existing areas and adjusted props to align with new story direction and game fantasy\nWrote and adjusted previous Unity editor tools to work with updated game systems\nImplemented and tested idle voice barks and NPC conversation voicelines\nDesigned and implemented unique Quest NPC and integrated with voice and dialogue to match story tone\nHelped other designer with miscellaneous tasks as needed:\nUpdating prefabs, creating new items\nAdding unique interaction text to create immersion\nCreated documentation for tasks created by new systems',
   },
   thena: {
     title: 'THENA, MANIFESTATION OF THE GRAIL',
-    description: 'Designer, Artist - Fan champion based on Athene\'s Unholy Grail',
+    subtitle: 'Designer, Artist - Fan champion based on Athene\'s Unholy Grail',
+    description: '',
   },
   poc: {
-    title: 'POC',
-    description: 'Coming soon',
+    title: 'PATH OF CHAMPIONS FAN DESIGNS',
+    description: '',
   },
 }
 
@@ -52,6 +55,7 @@ function App() {
   const [projectsScroll, setProjectsScroll] = useState(0)
   const [selectedProject, setSelectedProject] = useState(null)
   const [aboutOpen, setAboutOpen] = useState(false)
+  const [pocTab, setPocTab] = useState('sivir')
   const [copiedShow, setCopiedShow] = useState(false)
   const [dragging, setDragging] = useState(false)
   const scrollTrackRef = useRef(null)
@@ -119,7 +123,7 @@ function App() {
   }
 
   if (page === 'projects') {
-    const maxScroll = selectedProject === 'sale' ? 2500 : selectedProject === 'smoke' ? 2500 : selectedProject === 'thena' ? 2800 : selectedProject ? 400 : 800
+    const maxScroll = selectedProject === 'sale' ? 2500 : selectedProject === 'smoke' ? 2500 : selectedProject === 'thena' ? 2800 : selectedProject === 'poc' ? 3500 : selectedProject ? 400 : 800
     const handleWheel = (e) => {
       setProjectsScroll((prev) => Math.min(maxScroll, Math.max(0, prev + e.deltaY)))
     }
@@ -184,10 +188,53 @@ function App() {
                 <span className="back-arrow">&#9664;</span> BACK
               </button>
               <h1 className="project-detail-title">{projectData[selectedProject].title}</h1>
+              {projectData[selectedProject].subtitle && (
+                <h2 className="project-detail-subtitle">{projectData[selectedProject].subtitle}</h2>
+              )}
               {selectedProject === 'smoke' && (
                 <div className="project-detail-links">
                   <a href="https://smokebreakgame.carrd.co/" target="_blank" rel="noopener noreferrer" className="project-link">Website</a>
                   <a href="https://store.steampowered.com/app/3564090/Smoke_Break/" target="_blank" rel="noopener noreferrer" className="project-link">Steam</a>
+                </div>
+              )}
+              {selectedProject === 'poc' && (
+                <div className="project-detail-images">
+                  <div className="poc-tabs">
+                    <span className={`poc-tab ${pocTab === 'sivir' ? 'poc-tab-active' : ''}`} onClick={() => { setPocTab('sivir'); setProjectsScroll(0) }}>SIVIR</span>
+                    <span className={`poc-tab ${pocTab === 'irelia' ? 'poc-tab-active' : ''}`} onClick={() => { setPocTab('irelia'); setProjectsScroll(0) }}>IRELIA</span>
+                  </div>
+                  {pocTab === 'sivir' && (
+                    <>
+                      <div className="project-detail-image-block">
+                        <img src="/projectimages/poc1.png" className="project-detail-img" alt="" draggable={false} />
+                      </div>
+                      <div className="project-detail-image-block">
+                        <img src="/projectimages/poc2.png" className="project-detail-img" alt="" draggable={false} />
+                      </div>
+                      <div className="project-detail-image-block">
+                        <img src="/projectimages/poc3.png" className="project-detail-img" alt="" draggable={false} />
+                      </div>
+                      <div className="project-detail-image-block">
+                        <img src="/projectimages/poc4.png" className="project-detail-img" alt="" draggable={false} />
+                      </div>
+                    </>
+                  )}
+                  {pocTab === 'irelia' && (
+                    <>
+                      <div className="project-detail-image-block">
+                        <img src="/projectimages/poc5.png" className="project-detail-img" alt="" draggable={false} />
+                      </div>
+                      <div className="project-detail-image-block">
+                        <img src="/projectimages/poc6.png" className="project-detail-img" alt="" draggable={false} />
+                      </div>
+                      <div className="project-detail-image-block">
+                        <img src="/projectimages/poc7.png" className="project-detail-img" alt="" draggable={false} />
+                      </div>
+                      <div className="project-detail-image-block">
+                        <img src="/projectimages/poc8.png" className="project-detail-img" alt="" draggable={false} />
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
               {selectedProject === 'sale' && (
