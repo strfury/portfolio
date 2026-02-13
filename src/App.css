@@ -210,6 +210,8 @@
   top: 62px;
   letter-spacing: -1px;
   text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .nav-resume {
@@ -546,6 +548,12 @@
 
 .projectshover-active {
   opacity: 1;
+}
+
+.arthover {
+  left: 297px;
+  transform: scaleX(0.5);
+  transform-origin: 413px 0;
 }
 
 .scrollbg {

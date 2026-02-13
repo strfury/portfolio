@@ -16,7 +16,7 @@ function useScale() {
 const projectData = {
   pvz: {
     title: 'PLANTS VS ZOMBIES 3: EVOLVED',
-    subtitle: 'GAME DESIGN INTERN - MAY-AUGUST 2025',
+    subtitle: 'EA GAME DESIGN INTERN - MAY-AUGUST 2025',
     description: 'Wrote design documents for new and returning Plants from the PVZ Franchise\nDesigned 5+ new plants and merges of previously existing plants\nModernized older plants from previous installations\nDesigned and pitched engineering feature request for upcoming plant\nIterated and implemented feedback on plant balance\nPlayed and observed weekly playtests and logged bugs\nParticipated in art and animation meetings to provide feedback on new designs',
   },
   smoke: {
@@ -24,13 +24,13 @@ const projectData = {
     description: 'Worked with marketing director to create 50+ posts across multiple social media platforms, (Tiktok, Instagram, Twitter), leading to 25,000+ views and 1,000 total plays\nStoryboarded trailer and provided feedback during development\nCreated .carrd website and recorded/edited gifs to show gameplay features',
   },
   chud: {
-    title: 'CHUD',
-    description: 'Coming soon',
+    title: 'CHUD DATING SIMULATOR',
+    description: '',
   },
   sale: {
     title: 'SALEBLAZERS - MULTIPLAYER SHOPKEEPING GAME',
     subtitle: 'GAME DESIGN INTERN - JANUARY 2026-PRESENT',
-    description: 'Wrote, and implemented complex dialogue trees, scripted with Lua\nRedesigned existing areas and adjusted props to align with new story direction and game fantasy\nWrote and adjusted previous Unity editor tools to work with updated game systems\nImplemented and tested idle voice barks and NPC conversation voicelines\nDesigned and implemented unique Quest NPC and integrated with voice and dialogue to match story tone\nHelped other designer with miscellaneous tasks as needed:\nUpdating prefabs, creating new items\nAdding unique interaction text to create immersion\nCreated documentation for tasks created by new systems',
+    description: 'Wrote and adjusted previous Unity editor tools to work with updated game systems\nImplemented and tested idle voice barks and NPC conversation voicelines\nDesigned and implemented unique Quest NPC and integrated with voice and dialogue to match story tone\nHelped other designer with miscellaneous tasks as needed:\nUpdating prefabs, creating new items\nAdding unique interaction text to create immersion\nCreated documentation for tasks created by new systems\nLogged and reproduced bugs in testing as well as logging and sorting User-reported bugs on Discord and in-game\nRedesigned existing areas and adjusted props to align with new story direction and game fantasy',
   },
   thena: {
     title: 'THENA, MANIFESTATION OF THE GRAIL',
@@ -52,6 +52,7 @@ function App() {
   const [stat4Hover, setStat4Hover] = useState(false)
   const [statusIndex, setStatusIndex] = useState(0)
   const [projectsHover, setProjectsHover] = useState(false)
+  const [artHover, setArtHover] = useState(false)
   const [projectsScroll, setProjectsScroll] = useState(0)
   const [selectedProject, setSelectedProject] = useState(null)
   const [aboutOpen, setAboutOpen] = useState(false)
@@ -88,7 +89,7 @@ function App() {
 
           <span className="text nav-play">PLAY</span>
           <span className="text nav-projects">PROJECTS</span>
-          <span className="text nav-art">ART</span>
+          <span className="text nav-art" onClick={() => { setProjectsScroll(0); setPage('art') }}>ART</span>
           <span className="text nav-resume" onClick={() => window.open('/Resume.pdf', '_blank')}>RESUME</span>
 
           <span className="text top-name">Alicia Fu</span>
@@ -123,7 +124,7 @@ function App() {
   }
 
   if (page === 'projects') {
-    const maxScroll = selectedProject === 'sale' ? 2500 : selectedProject === 'smoke' ? 2500 : selectedProject === 'thena' ? 2800 : selectedProject === 'poc' ? 3500 : selectedProject ? 400 : 800
+    const maxScroll = selectedProject === 'sale' ? 2500 : selectedProject === 'smoke' ? 2500 : selectedProject === 'thena' ? 2800 : selectedProject === 'poc' ? 3500 : selectedProject === 'chud' ? 4000 : selectedProject ? 400 : 800
     const handleWheel = (e) => {
       setProjectsScroll((prev) => Math.min(maxScroll, Math.max(0, prev + e.deltaY)))
     }
@@ -155,25 +156,25 @@ function App() {
             <>
               <span className="text projects-heading">GAME PROJECTS</span>
 
-              <div className="project-card project-card-1" onClick={() => { setSelectedProject('thena'); setProjectsScroll(0) }}>
-                <img src="/thena.png" className="project-card-img" alt="" draggable={false} />
-                <img src="/thenahover.png" className="project-card-hover" alt="" draggable={false} />
-              </div>
-              <div className="project-card project-card-2" onClick={() => { setSelectedProject('sale'); setProjectsScroll(0) }}>
+              <div className="project-card project-card-1" onClick={() => { setSelectedProject('sale'); setProjectsScroll(0) }}>
                 <img src="/sale.png" className="project-card-img" alt="" draggable={false} />
                 <img src="/salehover.png" className="project-card-hover" alt="" draggable={false} />
+              </div>
+              <div className="project-card project-card-2" onClick={() => { setSelectedProject('thena'); setProjectsScroll(0) }}>
+                <img src="/thena.png" className="project-card-img" alt="" draggable={false} />
+                <img src="/thenahover.png" className="project-card-hover" alt="" draggable={false} />
               </div>
               <div className="project-card project-card-3" onClick={() => { setSelectedProject('pvz'); setProjectsScroll(0) }}>
                 <img src="/pvz.png" className="project-card-img" alt="" draggable={false} />
                 <img src="/pvzhover.png" className="project-card-hover" alt="" draggable={false} />
               </div>
-              <div className="project-card project-card-4" onClick={() => { setSelectedProject('smoke'); setProjectsScroll(0) }}>
-                <img src="/smoke.png" className="project-card-img" alt="" draggable={false} />
-                <img src="/smokehover.png" className="project-card-hover" alt="" draggable={false} />
-              </div>
-              <div className="project-card project-card-5" onClick={() => { setSelectedProject('chud'); setProjectsScroll(0) }}>
+              <div className="project-card project-card-4" onClick={() => { setSelectedProject('chud'); setProjectsScroll(0) }}>
                 <img src="/chud.png" className="project-card-img" alt="" draggable={false} />
                 <img src="/chudhover.png" className="project-card-hover" alt="" draggable={false} />
+              </div>
+              <div className="project-card project-card-5" onClick={() => { setSelectedProject('smoke'); setProjectsScroll(0) }}>
+                <img src="/smoke.png" className="project-card-img" alt="" draggable={false} />
+                <img src="/smokehover.png" className="project-card-hover" alt="" draggable={false} />
               </div>
               <div className="project-card project-card-6" onClick={() => { setSelectedProject('poc'); setProjectsScroll(0) }}>
                 <img src="/poc.png" className="project-card-img" alt="" draggable={false} />
@@ -237,12 +238,58 @@ function App() {
                   )}
                 </div>
               )}
+              {selectedProject === 'chud' && (
+                <div className="project-detail-links">
+                  <a href="https://lotiion.itch.io/chud-dating-simulator" target="_blank" rel="noopener noreferrer" className="project-link sale-link">Download Link</a>
+                </div>
+              )}
               {selectedProject === 'sale' && (
                 <div className="project-detail-links">
                   <a href="https://store.steampowered.com/app/1522820/Saleblazers/" target="_blank" rel="noopener noreferrer" className="project-link sale-link">Steam Link</a>
                 </div>
               )}
+              {selectedProject === 'sale' && (
+                <div style={{ margin: '0 20px', maxWidth: '560px' }}>
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/VkKcCM7df00"
+                    title="Saleblazers Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
+              {selectedProject === 'sale' && (
+                <p className="project-detail-caption" style={{ margin: '10px 20px', color: 'white', fontSize: '22px', fontFamily: 'Beaufort', fontWeight: 'bold' }}>Tools used: Unity, Lua, Blender, Trello, Jira, Perforce</p>
+              )}
+              {selectedProject === 'pvz' && (
+                <p className="project-detail-caption" style={{ margin: '10px 20px', color: 'white', fontSize: '22px', fontFamily: 'Beaufort', fontWeight: 'bold' }}>Tools used: Unity, Git, Jira, Confluence</p>
+              )}
+              {selectedProject === 'chud' && (
+                <p className="project-detail-caption" style={{ margin: '10px 20px', color: 'white', fontSize: '22px', fontFamily: 'Beaufort', fontWeight: 'bold' }}>Tools used: Ren'Py, Procreate, Adobe Aftereffects</p>
+              )}
               <p className="project-detail-desc">{projectData[selectedProject].description}</p>
+              {selectedProject === 'chud' && (
+                <p className="project-detail-desc">Wrote, designed, drew, and scripted Chud Dating Simulator, a short visual novel game about finding love despite terrible eating habits.{"\n"}Overhauled Ren'Py UI, added implemented custom music and sounds created by <a href="https://itch.io/profile/wyale" target="_blank" rel="noopener noreferrer" style={{ color: '#b8a9e8' }}>wyale</a>.{"\n"}Approx. 30 mins of playtime, 4 unique endings with animated end screens.{"\n"}All food images are real, sadly, and sourced from Reddit.</p>
+              )}
+              {selectedProject === 'chud' && (
+                <div className="project-detail-images">
+                  <div className="project-detail-image-block">
+                    <img src="/projectimages/chud1.png" className="project-detail-img" alt="" draggable={false} />
+                  </div>
+                  <div className="project-detail-image-block">
+                    <img src="/projectimages/chud2.png" className="project-detail-img" alt="" draggable={false} />
+                  </div>
+                  <div className="project-detail-image-block">
+                    <img src="/projectimages/chud3.png" className="project-detail-img" alt="" draggable={false} />
+                  </div>
+                </div>
+              )}
+              {selectedProject === 'chud' && (
+                <p className="project-detail-desc">{"\n"}This was a solo project for an experimental game class-- I wanted to see if it was possible for players to form an emotional connection to characters with no visuals, and even lackluster personalities. Inspired by a certain online forum, and my own lack of cooking skill, I wanted to make a game where each character showcased their personality through not only conversations directly in the player but also how they interacted with the other characters.{"\n\n"}In my playtests, I found that everyone usually had at least one character they did truly enjoy, and oftentimes one they were annoyed by. This was a design goal; to make each character a certain personality trait exaggerated to the max, to add more variety to the game and make it overall more memorable.{"\n"}A brief description of each character, ranked from my personal favorite to least favorite:{"\n"}FutureMathBoss - A high strung, matter of fact, academic genius who prioritizes studying over nutrition. Not proper nutrition, but any nutrition at all.{"\n"}garliclicker1 - A laid back, antisocial culinary student who cooks a lot. The only character that makes palatable food.{"\n"}just_average_guy - Just an average guy who loves his cat. And eating the worst food of all time.{"\n"}sniper_main_dps - A top tier, semi-professional gamer, who does eat. A lot. But cooks none of it. And might not understand cooking as a concept at all.</p>
+              )}
               {selectedProject === 'thena' && (
                 <div className="project-detail-links">
                   <a href="https://docs.google.com/document/d/18vUcQwLs3NbqY4v0i9Shs0ShFW2iDUrP5Vk6_hZonz8/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="project-link sale-link">Design Documents</a>
@@ -314,15 +361,11 @@ function App() {
                 <div className="project-detail-images">
                   <div className="project-detail-image-block">
                     <img src="/projectimages/sale1.png" className="project-detail-img" alt="" draggable={false} />
-                    <p className="project-detail-caption">Reworked village area to be more homely and include farms</p>
+                    <p className="project-detail-caption">Reworked village area to be more homely and include farms--we wanted the village to see more lived in, and have a valid explanation for how citizens survive in a walled city without outside help; they must know how to grow their own crops. Not only did this fill up much of the empty space in between houses, it has a solid story purpose that makes the world feel more possible.</p>
                   </div>
                   <div className="project-detail-image-block">
-                    <img src="/projectimages/sale2.png" className="project-detail-img" alt="" draggable={false} />
-                    <p className="project-detail-caption">Redesigned and setdressed enemy outposts to tell a story of gunpowder production</p>
-                  </div>
-                  <div className="project-detail-image-block">
-                    <img src="/projectimages/sale3.png" className="project-detail-img" alt="" draggable={false} />
-                    <p className="project-detail-caption">Sculpted and redesigned swamp area to be more clear for new players while retaining eery mood</p>
+                    <img src="/projectimages/sale4.png" className="project-detail-img" alt="" draggable={false} />
+                    <p className="project-detail-caption">Wrote, and implemented complex dialogue trees, scripted with Lua</p>
                   </div>
                 </div>
               )}
@@ -348,7 +391,109 @@ function App() {
         <img src="/projects hover.png" className="layer projectshover projectshover-active" alt="" draggable={false} />
         <span className="text projects-text nav-play" onClick={() => setPage('profile')}>PLAY</span>
         <span className="text projects-text nav-projects" onClick={() => { setSelectedProject(null); setProjectsScroll(0) }}>PROJECTS</span>
-        <span className="text projects-text nav-art">ART</span>
+        <span className="text projects-text nav-art" onClick={() => { setSelectedProject(null); setProjectsScroll(0); setPage('art') }}>ART</span>
+        <span className="text projects-text nav-resume" onClick={() => window.open('/Resume.pdf', '_blank')}>RESUME</span>
+
+        <span className="text projects-text top-name">Alicia Fu</span>
+        <span className="text projects-text top-status" onClick={() => setStatusIndex((statusIndex + 1) % statusMessages.length)}><span className="status-dot" /><span className="status-text">{statusMessages[statusIndex]}</span></span>
+        <span className="text projects-text top-fav-games">FAVORITE GAMES</span>
+
+        <div className="topright-icon-btn" onClick={() => setPage('profile')} />
+
+        <div className="scrollbar-track" ref={scrollTrackRef} onMouseDown={handleScrollbarDrag}>
+          <div className="scrollbar-thumb" style={{ top: `${scrollPercent * (100 - 20)}%` }} />
+        </div>
+      </div>
+    )
+  }
+
+  if (page === 'art') {
+    const maxScroll = 4500
+    const handleWheel = (e) => {
+      setProjectsScroll((prev) => Math.min(maxScroll, Math.max(0, prev + e.deltaY)))
+    }
+    const scrollPercent = maxScroll > 0 ? projectsScroll / maxScroll : 0
+
+    const handleScrollbarDrag = (e) => {
+      if (!scrollTrackRef.current) return
+      e.preventDefault()
+      const updateScroll = (clientY) => {
+        const rect = scrollTrackRef.current.getBoundingClientRect()
+        const clickY = Math.min(1, Math.max(0, (clientY - rect.top) / rect.height))
+        setProjectsScroll(Math.round(clickY * maxScroll))
+      }
+      updateScroll(e.clientY)
+      setDragging(true)
+      const onMove = (ev) => { ev.preventDefault(); updateScroll(ev.clientY) }
+      const onUp = () => { setDragging(false); window.removeEventListener('mousemove', onMove); window.removeEventListener('mouseup', onUp) }
+      window.addEventListener('mousemove', onMove)
+      window.addEventListener('mouseup', onUp)
+    }
+
+    return (
+      <div className={`page ${dragging ? 'no-select' : ''}`} style={{ '--page-scale': scale }} onWheel={handleWheel}>
+        <img src="/scrollbg.png" className="layer fill-layer scrollbg" alt="" draggable={false} />
+        <div className="projects-scrollable" style={{ transform: `translateY(-${projectsScroll}px)` }}>
+          <img src="/projectbg.png" className="layer fill-layer" alt="" draggable={false} />
+
+          <div className="project-detail">
+            <button className="back-btn" onClick={() => { setProjectsScroll(0); setPage('profile') }}>
+              <span className="back-arrow">&#9664;</span> BACK
+            </button>
+            <h1 className="project-detail-title">SOCIAL MEDIA HEADERS</h1>
+            <div className="project-detail-images">
+              <div className="project-detail-image-block">
+                <img src="/banner/1.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+              <div className="project-detail-image-block">
+                <img src="/banner/2.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+              <div className="project-detail-image-block">
+                <img src="/banner/3.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+              <div className="project-detail-image-block">
+                <img src="/banner/4.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+              <div className="project-detail-image-block">
+                <img src="/banner/5.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+              <div className="project-detail-image-block">
+                <img src="/banner/6.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+            </div>
+            <h1 className="project-detail-title">FIGMA DESIGNS</h1>
+            <div className="project-detail-images">
+              <div className="project-detail-image-block">
+                <img src="/banner/7.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+              <div className="project-detail-image-block">
+                <img src="/banner/8.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+              <div className="project-detail-image-block">
+                <img src="/banner/9.png" className="project-detail-img" alt="" draggable={false} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <img src="/base.png" className="layer base-layer projects-fixed" alt="" draggable={false} />
+        <img src="/games.png" className="layer shift-right projects-fixed" alt="" draggable={false} />
+        {!pawOpen && <img src="/gamescover.png" className="layer shift-right projects-fixed" alt="" draggable={false} />}
+        <img src="/play.png" className="layer projects-fixed" alt="" draggable={false} />
+        <img src="/toprighticon.png" className="layer shift-topright projects-fixed" alt="" draggable={false} />
+        <img src="/socials.png" className="layer projects-fixed" alt="" draggable={false} />
+        <img src="/resume.png" className="layer projects-fixed" alt="" draggable={false} />
+
+        <a href="https://www.behance.net/xayah" target="_blank" rel="noopener noreferrer" className="behance-btn" />
+        <a href="https://www.youtube.com/@04han" target="_blank" rel="noopener noreferrer" className="youtube-btn" />
+        <a href="https://www.linkedin.com/in/hannfu/" target="_blank" rel="noopener noreferrer" className="linkedin-btn" />
+
+        <img src="/paw.png" className={`paw ${pawOpen ? 'paw-open' : ''} ${pawAnimate ? 'paw-animate' : ''}`} alt="" draggable={false} onClick={() => { setPawAnimate(true); setPawOpen(!pawOpen) }} onTransitionEnd={() => setPawAnimate(false)} />
+
+        <img src="/projects hover.png" className="layer projectshover arthover projectshover-active" alt="" draggable={false} />
+        <span className="text projects-text nav-play" onClick={() => setPage('profile')}>PLAY</span>
+        <span className="text projects-text nav-projects" onClick={() => { setProjectsScroll(0); setSelectedProject(null); setPage('projects') }}>PROJECTS</span>
+        <span className="text projects-text nav-art" onClick={() => { setProjectsScroll(0) }}>ART</span>
         <span className="text projects-text nav-resume" onClick={() => window.open('/Resume.pdf', '_blank')}>RESUME</span>
 
         <span className="text projects-text top-name">Alicia Fu</span>
@@ -401,9 +546,10 @@ function App() {
 
       {/* Top nav */}
       <img src="/projects hover.png" className={`layer projectshover ${projectsHover ? 'projectshover-visible' : ''}`} alt="" draggable={false} />
+      <img src="/projects hover.png" className={`layer projectshover arthover ${artHover ? 'projectshover-visible' : ''}`} alt="" draggable={false} />
       <span className="text nav-play">PLAY</span>
       <span className="text nav-projects" onClick={() => { setProjectsHover(false); setSelectedProject(null); setProjectsScroll(0); setPage('projects') }} onMouseEnter={() => setProjectsHover(true)} onMouseLeave={() => setProjectsHover(false)}>PROJECTS</span>
-      <span className="text nav-art">ART</span>
+      <span className="text nav-art" onClick={() => { setArtHover(false); setProjectsScroll(0); setPage('art') }} onMouseEnter={() => setArtHover(true)} onMouseLeave={() => setArtHover(false)}>ART</span>
       <span className="text nav-resume" onClick={() => window.open('/Resume.pdf', '_blank')}>RESUME</span>
 
       {/* Top right name */}
